@@ -26,16 +26,25 @@ endif
 
 all: clean build test ## performs clean build and test
 
+wbuild: ## Generate the windows and linux builds for sep
+	echo "Compiling for every OS and Platform"
+	set GOOS=windows
+	set GOARCH=arm64
+	set CGO_ENABLED=0
+	go build -o ${BIN}/${EXE_NAME}.exe createspdxconf.go utils.go
+	set GOOS=linux
+	set GOARCH=amd64
+	go build -o ${BIN}/${EXE_NAME} createspdxconf.go utils.go
 
 build: ## Generate the windows and linux builds for sep
 	echo "Compiling for every OS and Platform"
 	set GOOS=windows
 	set GOARCH=arm64
 	set CGO_ENABLED=0
-	CGO_ENABLED=0 go build -o ${BIN}/${EXE_NAME}.exe doubleopenconf.go utils.go
+	CGO_ENABLED=0 go build -o ${BIN}/${EXE_NAME}.exe createspdxconf.go utils.go
 	set GOOS=linux
 	set GOARCH=amd64
-	CGO_ENABLED=0 go build -o ${BIN}/${EXE_NAME} doubleopenconf.go utils.go
+	CGO_ENABLED=0 go build -o ${BIN}/${EXE_NAME} createspdxconf.go utils.go
 
 
 test: ## downloads the meta-doubleopen git repo and configures 2 files in test folder workdir/conf/ bblayers.conf and local.conf
