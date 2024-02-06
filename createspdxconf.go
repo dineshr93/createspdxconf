@@ -38,7 +38,7 @@ func main() {
 		folderPath = os.Args[1]
 		posToInsertLocalConfFile, _ = strconv.Atoi(os.Args[2])
 	} else {
-		fmt.Println("Please provide reposync folder to process that contains workdir , insert position to local conf file as an argument")
+		fmt.Println("Please provide reposync folder to process that contains workdir , insert position (starts from 0) to local conf file as an argument")
 		fmt.Println("check https://git.yoctoproject.org/poky/tree/meta/classes/create-spdx-2.2.bbclass")
 		os.Exit(1)
 	}
