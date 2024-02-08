@@ -32,6 +32,7 @@ wbuild: ## Generate the windows and linux builds for sep
 	set GOARCH=arm64
 	set CGO_ENABLED=0
 	go build -o ${BIN}/${EXE_NAME}.exe createspdxconf.go utils.go
+lbuild:
 	set GOOS=linux
 	set GOARCH=amd64
 	set CGO_ENABLED=0
