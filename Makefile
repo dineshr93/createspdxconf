@@ -4,7 +4,9 @@ PROJ_DIR := ${ROOT_DIR}proj
 BKP_DIR := bkp
 EXE_NAME := createspdxconf
 BIN := bin
+IMAGE ?= createspdxconf:1.0
 
+export DOCKER_CLI_EXPERIMENTAL=enabled
 ifeq ($(OS),Windows_NT)
 	SHELL := powershell.exe
 	.SHELLFLAGS := -NoProfile -Command
@@ -75,3 +77,21 @@ git: ## commits and push the changes if commit msg m is given without spaces ex 
 
 help: ## Show this help
 	@${HELP_CMD}
+
+
+.PHONY: dbuild # Build the container image
+dbuild:
+	@docker buildx create --use --name=crossplat --node=crossplat && \
+	docker buildx build \
+		--output "type=docker,push=false" \
+		--tag $(IMAGE) \
+		.
+
+.PHONY: dpublish # Push the image to the remote registry
+dpublish:
+	@docker buildx create --use --name=crossplat --node=crossplat && \
+	docker buildx build \
+		--platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x \
+		--output "type=image,push=true" \
+		--tag $(IMAGE) \
+		.
