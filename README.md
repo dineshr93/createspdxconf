@@ -12,7 +12,10 @@ check : [create-spdx-2.2.bbclass](https://git.yoctoproject.org/poky/tree/meta/cl
 </pre>
 <h2 id="run">Run</h2>
 <pre class="codeblock language-sh">
+docker pull dineshr93/yconfcreatespdx:1.0
+
 <span class="hljs-built_in">cd</span> Dir_where_reposync_folder_is_present
+ 
 docker run -v <span class="hljs-variable">${PWD}</span>:<span class="hljs-variable">${PWD}</span> yconfcreatespdx:1.0 reposync_dir insert_position
 
 Please provide reposync folder to process that contains workdir , insert position (starts from 0) to <span class="hljs-built_in">local</span> conf file as an argument
