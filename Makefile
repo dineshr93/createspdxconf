@@ -4,7 +4,7 @@ PROJ_DIR := ${ROOT_DIR}proj
 BKP_DIR := bkp
 EXE_NAME := yconfcreatespdx
 BIN := bin
-IMAGE ?= yconfcreatespdx:1.0
+IMAGE ?= dineshr93/yconfcreatespdx:1.0
 
 export DOCKER_CLI_EXPERIMENTAL=enabled
 ifeq ($(OS),Windows_NT)
