@@ -1,15 +1,26 @@
-# doubleopenconfigurer
+<h1 id="yocto-config-for-create-spdx">Yocto config for create spdx</h1>
+<h2 id="build">build</h2>
+<h3 id="binary">binary</h3>
+<pre class="codeblock language-sh">make build
+</pre>
+<h3 id="docker">docker</h3>
+<pre class="codeblock language-sh">make dbuild
+</pre>
+<h2 id="run">Run</h2>
+<pre class="codeblock language-sh">
+<span class="hljs-built_in">cd</span> Dir_where_reposync_folder_is_present
+docker run -v <span class="hljs-variable">${PWD}</span>:<span class="hljs-variable">${PWD}</span> yconfcreatespdx:1.0 reposync_dir insert_position
 
-This will automatically configure meta-doubleopen to the project
+Please provide reposync folder to process that contains workdir , insert position (starts from 0) to <span class="hljs-built_in">local</span> conf file as an argument
+check https://git.yoctoproject.org/poky/tree/meta/classes/create-spdx-2.2.bbclass
 
-```console
-$ make
-all                            performs clean build and test
-build                          Generate the windows and linux builds for sep
-test                           downloads the meta-doubleopen git repo and configures 2 files in test folder workdir/conf/ bblayers.conf and local.conf
-del                            Delete the contents of test (named: proj) folder
-cp                             Copy Sample conf files to test (named: proj) folder in workdir/conf/
-clean                          Copy back the files to original state in test folder
-git                            commits and push the changes if commit msg m is given without spaces ex m=added_files
-help                           Show this help
-```
+
+docker run -v <span class="hljs-variable">${PWD}</span>:<span class="hljs-variable">${PWD}</span> yconfcreatespdx:1.0 <span class="hljs-variable">${PWD}</span>/reposync 3
+
+<span class="hljs-built_in">cat</span> /home/dinesh/dev/createspdxconf/reposync/workdir/conf/local.conf
+INHERIT += <span class="hljs-string">&quot;create-spdx-2.2&quot;</span>
+SPDX_PRETTY = <span class="hljs-string">&quot;1&quot;</span>
+SPDX_ARCHIVE_PACKAGED = <span class="hljs-string">&quot;1&quot;</span>
+SPDX_INCLUDE_SOURCES = <span class="hljs-string">&quot;1&quot;</span>
+SPDX_ARCHIVE_SOURCES = <span class="hljs-string">&quot;1&quot;</span>
+</pre>
