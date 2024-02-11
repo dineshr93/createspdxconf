@@ -1,6 +1,7 @@
 <h1 id="yocto-config-for-create-spdx">Yocto config for create spdx</h1>
 
-Configure the create-spdx bbclass parameters in the `workdir/conf/local.conf`
+Configure the create-spdx bbclass parameters in the `workdir/conf/local.conf` 
+check : [create-spdx-2.2.bbclass](https://git.yoctoproject.org/poky/tree/meta/classes/create-spdx-2.2.bbclass)
 
 <h2 id="build">build</h2>
 <h3 id="binary">binary</h3>
