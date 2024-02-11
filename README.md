@@ -3,6 +3,13 @@
 Configure the create-spdx bbclass parameters in the `workdir/conf/local.conf` 
 check : [create-spdx-2.2.bbclass](https://git.yoctoproject.org/poky/tree/meta/classes/create-spdx-2.2.bbclass)
 
+<h2 id="build">docker binary</h2>
+<h3 id="binary">binary</h3>
+<pre class="codeblock language-sh">docker pull dineshr93/yconfcreatespdx:1.0</pre>
+<h3 id="binary">Usage</h3>
+<pre class="codeblock language-sh">docker run -v ${PWD}:${PWD} yconfcreatespdx:1.0 reposync_dir insert_position</pre>
+
+
 <h2 id="build">build</h2>
 <h3 id="binary">binary</h3>
 <pre class="codeblock language-sh">make build
@@ -12,8 +19,6 @@ check : [create-spdx-2.2.bbclass](https://git.yoctoproject.org/poky/tree/meta/cl
 </pre>
 <h2 id="run">Run</h2>
 <pre class="codeblock language-sh">
-docker pull dineshr93/yconfcreatespdx:1.0
-
 <span class="hljs-built_in">cd</span> Dir_where_reposync_folder_is_present
  
 docker run -v <span class="hljs-variable">${PWD}</span>:<span class="hljs-variable">${PWD}</span> yconfcreatespdx:1.0 reposync_dir insert_position
