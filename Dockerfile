@@ -11,5 +11,5 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -ldflags="-w -s
 
 FROM --platform=${TARGETPLATFORM:-linux/amd64} scratch
 WORKDIR /app/
-COPY --from=builder /app/confcreatespdx /app/yconfcreatespdx
+COPY --from=builder /app/yconfcreatespdx /app/yconfcreatespdx
 ENTRYPOINT ["/app/yconfcreatespdx"]
