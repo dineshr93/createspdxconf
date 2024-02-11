@@ -7,7 +7,7 @@ check : [create-spdx-2.2.bbclass](https://git.yoctoproject.org/poky/tree/meta/cl
 <h3 id="binary">binary</h3>
 <pre class="codeblock language-sh">docker pull dineshr93/yconfcreatespdx:1.0</pre>
 <h3 id="binary">Usage</h3>
-<pre class="codeblock language-sh">docker run -v ${PWD}:${PWD} yconfcreatespdx:1.0 reposync_dir insert_position</pre>
+<pre class="codeblock language-sh">docker run -v ${PWD}:${PWD} yconfcreatespdx:1.0 ${PWD}/reposync_dir insert_position</pre>
 
 
 <h2 id="build">build</h2>
