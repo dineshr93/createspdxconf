@@ -1,4 +1,7 @@
 <h1 id="yocto-config-for-create-spdx">Yocto config for create spdx</h1>
+
+Configure the create-spdx bbclass parameters in the `workdir/conf/local.conf`
+
 <h2 id="build">build</h2>
 <h3 id="binary">binary</h3>
 <pre class="codeblock language-sh">make build
