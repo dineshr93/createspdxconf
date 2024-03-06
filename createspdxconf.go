@@ -26,7 +26,7 @@ func main() {
 	var wg sync.WaitGroup
 	wg.Add(1)
 
-	inheritText := "INHERIT += \"create-spdx-2.2\"" + "\n" + "SPDX_PRETTY = \"1\"" + "\n" + "SPDX_ARCHIVE_PACKAGED = \"1\"" + "\n" + "SPDX_INCLUDE_SOURCES = \"1\"" + "\n" + "SPDX_ARCHIVE_SOURCES = \"1\""
+	inheritText := "INHERIT += \"create-spdx\"" + "\n" + "SPDX_PRETTY = \"1\"" + "\n" + "SPDX_ARCHIVE_PACKAGED = \"1\"" + "\n" + "SPDX_INCLUDE_SOURCES = \"1\"" + "\n" + "SPDX_ARCHIVE_SOURCES = \"1\""
 
 	workDir := "workdir"
 	confDir := workDir + string(os.PathSeparator) + "conf"
